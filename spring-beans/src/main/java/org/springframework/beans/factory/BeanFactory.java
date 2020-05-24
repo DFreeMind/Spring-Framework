@@ -137,6 +137,7 @@ public interface BeanFactory {
 	 * @throws NoSuchBeanDefinitionException if there is no bean with the specified name
 	 * @throws BeansException if the bean could not be obtained
 	 */
+	// //按bean的id或者别名查找容器中的bean
 	Object getBean(String name) throws BeansException;
 
 	/**
@@ -154,6 +155,7 @@ public interface BeanFactory {
 	 * @throws BeanNotOfRequiredTypeException if the bean is not of the required type
 	 * @throws BeansException if the bean could not be created
 	 */
+	// //这个是一个泛型方法，按照bean的id或者别名查找指定类型的bean，返回指定类型的bean对象
 	<T> T getBean(String name, Class<T> requiredType) throws BeansException;
 
 	/**
@@ -186,6 +188,7 @@ public interface BeanFactory {
 	 * @since 3.0
 	 * @see ListableBeanFactory
 	 */
+	// //返回容器中指定类型的bean对象
 	<T> T getBean(Class<T> requiredType) throws BeansException;
 
 	/**
@@ -216,6 +219,7 @@ public interface BeanFactory {
 	 * @since 5.1
 	 * @see #getBeanProvider(ResolvableType)
 	 */
+	// //获取指定类型bean对象的获取器，这个方法比较特别，以后会专门来讲
 	<T> ObjectProvider<T> getBeanProvider(Class<T> requiredType);
 
 	/**

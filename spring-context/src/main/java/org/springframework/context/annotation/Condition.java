@@ -49,6 +49,10 @@ public interface Condition {
 	 * @return {@code true} if the condition matches and the component can be registered,
 	 * or {@code false} to veto the annotated component's registration
 	 */
+	/**
+	 * 判断条件是否匹配
+	 * context:条件判断上下文
+	 */
 	boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata);
 
 }

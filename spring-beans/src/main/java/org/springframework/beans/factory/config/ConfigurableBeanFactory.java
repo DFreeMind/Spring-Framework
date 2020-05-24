@@ -254,6 +254,11 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, Single
 	 * @param scopeName the scope identifier
 	 * @param scope the backing Scope implementation
 	 */
+	/**
+	 * 向容器中注册自定义的Scope
+	 * scopeName：作用域名称
+	 * scope：作用域对象
+	 **/
 	void registerScope(String scopeName, Scope scope);
 
 	/**

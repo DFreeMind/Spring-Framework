@@ -65,6 +65,10 @@ public interface ImportSelector {
 	 * the {@link AnnotationMetadata} of the importing @{@link Configuration} class.
 	 * @return the class names, or an empty array if none
 	 */
+	/**
+	 * 返回需要导入的类名的数组，可以是任何普通类，配置类（@Configuration、@Bean、@CompontentScan等标注的类）
+	 * @importingClassMetadata：用来获取被@Import标注的类上面所有的注解信息
+	 */
 	String[] selectImports(AnnotationMetadata importingClassMetadata);
 
 	/**

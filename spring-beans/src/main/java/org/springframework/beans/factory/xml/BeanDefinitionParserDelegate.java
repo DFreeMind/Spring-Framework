@@ -585,15 +585,23 @@ public class BeanDefinitionParserDelegate {
 			bd.setDependsOn(StringUtils.tokenizeToStringArray(dependsOn, MULTI_VALUE_ATTRIBUTE_DELIMITERS));
 		}
 
+		//获取bean元素的autowire-candidate元素，autowire-candidate如果不设置，其值就是default
 		String autowireCandidate = ele.getAttribute(AUTOWIRE_CANDIDATE_ATTRIBUTE);
+		//判断bean元素的autowire-candidate元素是否等于"default"或者是否等于""
 		if (isDefaultValue(autowireCandidate)) {
+			//获取beans元素default-autowire-candidates属性值
 			String candidatePattern = this.defaults.getAutowireCandidates();
+			//判断获取beans元素default-autowire-candidates属性值是否为空，
+			// default-autowire-candidates默认值就是null
 			if (candidatePattern != null) {
+				//判断bean的名称是否和default-autowire-candidates的值匹配，
+				// 如果匹配就将bean的autowireCandidate置为true，否则置为false
 				String[] patterns = StringUtils.commaDelimitedListToStringArray(candidatePattern);
 				bd.setAutowireCandidate(PatternMatchUtils.simpleMatch(patterns, beanName));
 			}
 		}
 		else {
+			//判断bean的autowire-candidate的值是否等于"true"
 			bd.setAutowireCandidate(TRUE_VALUE.equals(autowireCandidate));
 		}
 

@@ -37,6 +37,9 @@ public interface MetadataReaderFactory {
 	 * @return a holder for the ClassReader instance (never {@code null})
 	 * @throws IOException in case of I/O failure
 	 */
+	/**
+	 * 返回给定类名的MetadataReader对象
+	 */
 	MetadataReader getMetadataReader(String className) throws IOException;
 
 	/**
@@ -44,6 +47,9 @@ public interface MetadataReaderFactory {
 	 * @param resource the resource (pointing to a ".class" file)
 	 * @return a holder for the ClassReader instance (never {@code null})
 	 * @throws IOException in case of I/O failure
+	 */
+	/**
+	 * 返回指定资源的MetadataReader对象
 	 */
 	MetadataReader getMetadataReader(Resource resource) throws IOException;
 
